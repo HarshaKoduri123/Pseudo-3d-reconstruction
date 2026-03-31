@@ -1,0 +1,60 @@
+# config.yaml 
+
+# ── Data ──────────────────────────────────────────────────────────
+dataroot: "/mnt/c/Users/PRASANTH/3D-Reconstruction/dataset/DRP-317"
+dataset: sandstone
+input_type: filtered
+patch_size: 64
+patch_stride: 32
+subsample_factors: [5, 10, 15]
+max_patches: null
+
+# ── Model ─────────────────────────────────────────────────────────
+network: asym_zmamba              
+trainee: segment
+pretrained: false
+no_global_skip: false
+
+# ── Training ──────────────────────────────────────────────────────
+train: true
+validate: false
+test: false
+max_epochs: 100 
+batch_size: 8
+valid_batch_size: 2
+augment: true
+
+
+optim: adam
+lr_start: 0.0001
+lr_param: 0.9
+momentum: 0.9
+decay: 0.0001
+nesterov: false
+schedule: flat
+
+
+loss: l2_loss
+
+monitor: val_loss
+monitor_mode: min
+train_metrics: []
+valid_metrics: []
+tests_metrics: []
+
+# ── Hardware ──────────────────────────────────────────────────────
+accelerator: gpu
+devices: 1
+precision: 16-mixed
+
+# ── Misc ──────────────────────────────────────────────────────────
+seed: 42
+fraction: 1.0
+remarks: asym_zmamba_sandstone
+load: ""
+resume: false
+drop: 0.0
+padding: 0
+padding_mode: [circular, reflect, reflect]
+log_every_n_steps: 10
+num_sanity_val_steps: 0
