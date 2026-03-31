@@ -1,4 +1,4 @@
-# Pseudo-3D Reconstruction with Z-Axis Mamba
+# Pseudo-3D Reconstruction
 
 This project reconstructs dense 3D sandstone CT volumes from sparse serial sections. The input is a partially observed volume where only every *N*th slice is kept, and the model predicts the missing slices to recover a dense volume.
 
